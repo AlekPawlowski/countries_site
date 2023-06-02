@@ -1,0 +1,39 @@
+header{
+    section{
+        max-width: $desktop_max_width;
+    }
+}
+
+main {
+    max-width: $desktop_max_width;
+}
+
+#filters{
+    flex-direction: row;
+    justify-content: space-between;
+}
+fieldset{
+    width: 300px;
+}
+
+#countries_container{
+    max-width: unset;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    transition: .5s all;
+}
+
+.country_element{
+    max-width: 250px;
+    width: 100%;
+    a{
+        display: block;
+    }
+    img{
+        margin: 0 auto;
+        width: 100%;
+        max-height: 125px;
+        object-fit: contain;
+    }
+}

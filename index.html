@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap" rel="stylesheet">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Countries site</title>
-  </head>
-  <body>
+</head>
+
+<body class="dark_mode">
     <header>
-        <h1>Where in the world?</h1>
-        <button type="button" id="color_select">
-            <i class="icon color_icon"></i>
-            <p id="mode"></p>
-        </button>
+        <section>
+            <h1>Where in the world?</h1>
+            <button class="dark_mode" type="button" id="color_select">
+                <i class="icon color_icon"></i>
+                <p id="mode">Dark mode</p>
+            </button>
+        </section>
     </header>
     <main>
         <section id="filters">
             <fieldset>
                 <i id="loop" class=""></i>
-                <input id="search_input" type="text" placeholder="Search for a country">
+                <input id="search_input" type="text" placeholder="Search for a country...">
             </fieldset>
             <select placeholder="Filter by region" name="region_select" id="region_select"></select>
         </section>
         <section id="countries_container"></section>
     </main>
     <script type="module" src="/src/app.ts"></script>
-  </body>
+</body>
+
 </html>

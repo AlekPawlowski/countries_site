@@ -1,0 +1,26 @@
+// dm -> dark mode colors
+$dm_element: hsl(209, 23%, 22%);
+$dm_background: hsl(207, 26%, 17%);
+
+// light mode colors
+$lm_text: hsl(200, 15%, 8%);
+$lm_input: hsl(0, 0%, 52%);
+$lm_background: hsl(0, 0%, 98%);
+
+// common colors for dark mode text and light mode element
+$white: hsl(0, 0%, 100%);
+
+// fonts
+$home_page_font_size: 14px;
+$detail_page_font_size: 16px;
+$bold: 800;
+$medium: 600;
+$light: 300;
+
+
+$borderRadius: 5px;
+$box_shadow: 0px 0px 8px 0px rgba(0,0,0, .22);
+
+$spaceBetweenSecitonsMobile: 25px;
+
+$desktop_max_width: 1140px;

@@ -1,2 +1,86 @@
 @import './partials/reset.scss';
 @import './partials/variables.scss';
+@import './partials/mobile.scss';
+
+@media screen and (min-width: 768px) {
+    @import './partials/desktop.scss';
+}
+
+body{
+    font-family: Nunito Sans, sans-serif;
+}
+
+header{
+    section{
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        align-items: center;
+    }
+    box-shadow: $box_shadow;
+}
+h1{
+    font-weight: $medium;
+}
+
+i{
+    background-size: contain;
+}
+
+input,
+select{
+    border: none;
+    &:focus,
+    &:focus-visible {
+        border: none;
+        outline: none;
+    }
+}
+#color_select{
+    background-color: inherit;
+    border: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    p{
+        font-weight: $light;
+    }
+    i{
+        width: 20px;
+        height: 20px;
+    }
+    &.dark_mode{
+        i{
+            background-image: url('/moon.svg');
+            fill: white;
+        }
+    }
+    &.light_mode{
+        i{
+            background-image: url('/sun.svg');
+        }
+    }
+}
+
+input{
+    border: none;
+}
+
+
+.dark_mode{
+    background-color: $dm_background;
+    color: $white;
+    transition: .5 all;
+    header,
+    fieldset, 
+    input, 
+    select,
+    .country_element{
+        color: $white;
+        background-color: $dm_element;
+    }
+    input::placeholder{
+        color: $white;
+    }
+}
