@@ -1,43 +1,90 @@
 import { CountryInformation } from "../interfaces/Country.interface";
-
+import { createDataParagraph } from "./variables.global";
 export class ListOfCountries {
     allCountries: CountryInformation[] = [];
     countriesToShow: CountryInformation[] = []; // for sorting purposes
     regions: string[] = [];
+    searchedCountry: string = "";
+    selectedRegion: string = "";
     constructor(
         public incomeCountries: CountryInformation[],
-        public listContainer: HTMLElement
+        public listContainer: HTMLElement,
+        public selectBoxContainer: HTMLElement
     ) { }
 
+    get regionsArr(){
+        return this.regions;
+    }
     initlize() {
         this.allCountries = this.incomeCountries;
-        this.renderAllCountries();
+        this.countriesToShow = this.incomeCountries;
+
+        this.renderCountries(this.countriesToShow, this.listContainer);
+        this.fillSelectBox();
+    }
+    
+    public renderCountries(data: CountryInformation[], container: HTMLElement): void {
+        console.log(data);
+        container.innerHTML = data.map((country: CountryInformation) => this.renderSingleCountry(country)).join('');
     }
 
+    private renderSingleCountry(data: CountryInformation): string {
+        // sideEffect, fill regions array
+        const { name: {
+            common: countryName 
+        },
+            population, capital, flags, region
+        } = data;
+        if(!this.regions.includes(region)) this.regions.push(region);
+        return `
+            <a href="#?country=${countryName}" target="_blank">
+                <img src="${flags.svg}" alt="flag_${countryName}">
+                <section>
+                    <h2>${countryName}</h2>
+                    ${createDataParagraph("Population", population)}
+                    ${createDataParagraph("Region", region)}
+                    ${createDataParagraph("Capital", capital)}
+                </section>
+            </a>
+        `;
+    }
 
+    public fillSelectBox() {
+        const selectOptions = this.regions;
+        const selectBoxContainer = this.selectBoxContainer;
+        selectBoxContainer.innerHTML = "";
+        // create options
+        selectOptions.forEach(option => {
+            const optionElement = createOptionElement(option);
+            selectBoxContainer.appendChild(optionElement);
+        })
 
-    renderAllCountries() {
-        console.log(this.listContainer);
-        const createParagraph = (boldContent: string, value: string | number): string => `<p><span class="bold">${boldContent}</span><span>${value}</span></p>`;
-        this.listContainer.innerHTML = this.allCountries.map((country: CountryInformation) => {
-            const { name: {
-                    common: countryName
-                }, 
-                population, capital, flags, region
-            } = country;
-            // const {common: countryName} = name;
-            return `
-                <a href="#?country=${countryName}">
-                    <img src="${flags.svg}" alt="flag_${countryName}">
-                    <section>
-                        <h2>${countryName}</h2>
-                        ${createParagraph("Population", population)}
-                        ${createParagraph("Region", region)}
-                        ${createParagraph("Capital", capital)}
-                    </section>
-                </a>
-            `;
-        }).join('');
+        function createOptionElement(option: string): HTMLElement {
+            const optionElement = document.createElement("option");
+            optionElement.value = option;
+            optionElement.innerHTML = option;
+            return optionElement;
+        }
+    };
 
+    public updateOption(value: string): void {
+        this.selectedRegion = value;
+        this.filterSearchElements();
+    }
+
+    public updateFhrase(value: string): void {
+        this.searchedCountry = value;
+        this.filterSearchElements();
+    }
+
+    public filterSearchElements(): void {
+        this.countriesToShow = this.allCountries.filter((country) => {
+            return (
+                (this.selectedRegion.length == 0 ? true : country.region == this.selectedRegion)
+                &&
+                (country.name.common.toLocaleLowerCase().includes(this.searchedCountry.toLocaleLowerCase()))
+            )
+        });
+        this.renderCountries(this.countriesToShow, this.listContainer);
     }
 }
