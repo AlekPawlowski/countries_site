@@ -1,5 +1,7 @@
 import { CountryInformation } from "../interfaces/Country.interface";
 import { createDataParagraph } from "./variables.global";
+import customSelectBoxes  from '../components/customSelectBox';
+
 export class ListOfCountries {
     allCountries: CountryInformation[] = [];
     countriesToShow: CountryInformation[] = []; // for sorting purposes

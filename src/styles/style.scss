@@ -50,13 +50,13 @@ select{
         width: 20px;
         height: 20px;
     }
-    &.dark_mode{
+    &.dm_color{
         i{
             background-image: url('/moon.svg');
             fill: white;
         }
     }
-    &.light_mode{
+    &.lm_color{
         i{
             background-image: url('/sun.svg');
         }
@@ -75,7 +75,7 @@ input{
     header,
     fieldset, 
     input, 
-    select,
+    #region_select,
     .country_element{
         color: $white;
         background-color: $dm_element;

@@ -1,25 +1,24 @@
-
-header{
+header {
     margin-bottom: $spaceBetweenSecitonsMobile;
     padding: 20px 15px;
-    section{
+    section {
         max-width: 95%;
     }
 }
 
-main{
+main {
     width: 90%;
     margin: 0 auto;
 }
 
-#filters{
+#filters {
     display: flex;
     margin-bottom: $spaceBetweenSecitonsMobile;
     gap: 40px;
     flex-direction: column;
 }
 
-fieldset{
+fieldset {
     display: flex;
     padding: 12px $spaceBetweenSecitonsMobile;
     box-sizing: border-box;
@@ -28,19 +27,63 @@ fieldset{
     border-radius: $borderRadius;
 }
 
-#loop{
+#loop {
     width: 25px;
     height: 25px;
-    background-image: url('/loop.svg');
+    background-image: url("/loop.svg");
 }
 
-select{
+#region_select {
     border-radius: $borderRadius;
-    padding: 12px $spaceBetweenSecitonsMobile;
+    padding: 12px 80px 12px $spaceBetweenSecitonsMobile;
     width: fit-content;
+    position: relative;
+    font-size: 12px;
+    &.active {
+        #region_options {
+            animation: showBox 0.5s linear;
+            opacity: 1;
+            transform: translate(0%, 100%);
+            display: block;
+        }
+    }
+    &.inactive {
+        #region_options {
+            opacity: 0;
+            transform: translate(-20%, 100%);
+            animation: showBox 0.5s reverse;
+        }
+    }
+}
+@keyframes showBox {
+    0% {
+        opacity: 0;
+        transform: translate(-20%, 100%);
+    }
+    1% {
+        z-index: 1;
+    }
+    100% {
+        transform: translate(0%, 100%);
+        opacity: 1;
+        z-index: 1;
+    }
+}
+#region_options {
+    transition: 0.5s all;
+    position: absolute;
+    background-color: inherit;
+    width: 100%;
+    left: 0;
+    bottom: -5px;
+    border-radius: $borderRadius;
+    box-shadow: $box_shadow;
+    padding: 12px $spaceBetweenSecitonsMobile;
+    box-sizing: border-box;
+    line-height: 140%;
 }
 
-#countries_container{
+#countries_container {
     max-width: 80%;
     margin: 0 auto;
     display: flex;
@@ -48,14 +91,15 @@ select{
     gap: 40px;
 }
 
-.country_element{
+.country_element {
     border-radius: $borderRadius;
     box-shadow: $box_shadow;
     overflow: hidden;
-    img{
+    img {
         max-width: 100%;
+        width: 100%;
     }
-    h2{
+    h2 {
         font-weight: $bold;
         font-size: $detail_page_font_size;
         padding-bottom: 20px;
@@ -64,13 +108,17 @@ select{
         padding-bottom: 10px;
         font-size: $home_page_font_size;
     }
-    span{
+    span {
         font-weight: $light;
     }
-    .bold{
+    .bold {
         font-weight: $medium;
     }
 }
-.country_info{
+.custom-select select {
+    display: none; /*hide original SELECT element:*/
+}
+
+.country_info {
     padding: 20px 20px 40px;
 }
