@@ -3,12 +3,13 @@ export interface CountryInformation{
         common: string;
     };
     population: number;
-    capital: string;
+    capital: string[];
     flags: {
         svg: string;
         png: string;
     }
     region: string;
+    cca3: string;
 }
 
 export interface Currencie {
@@ -25,13 +26,12 @@ export interface Languages {
 export interface SingleViewCountry extends CountryInformation{
     name: {
         common: string;
-        native: string;
+        nativeName: any;
     };
-    alpha2Code: string; 
-    alpha3Code: string; // for get full name of border countries
-    subgregion: string;
-    topLevelDomain: string[];
+    subregion: string;
+    tld: string[];
     currencies: Currencie[];
     languages: Languages[];
+    borders: string[];
 }
 

@@ -35,19 +35,19 @@ export class ListOfCountries {
         const { name: {
             common: countryName 
         },
-            population, capital, flags, region
+            population, capital, flags, region, cca3: countryConde
         } = data;
         if(!this.regions.includes(region)) this.regions.push(region);
         return `
             <section class="country_element">
-            <a href="#?country=${countryName}" target="_blank">
+            <a href="#?country=${countryConde}" target="_blank">
                 <img src="${flags.png}" alt="flag_${countryName}">
             </a>
                 <section class="country_info">
                     <h2>${countryName}</h2>
                     ${createDataParagraph("Population", population)}
                     ${createDataParagraph("Region", region)}
-                    ${createDataParagraph("Capital", capital)}
+                    ${createDataParagraph("Capital", capital ? capital.map(single => single).join(", ") : "Unknown")}
                 </section>
             </section>
         `;

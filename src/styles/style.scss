@@ -10,6 +10,23 @@ body{
     transition: background $transitionTime;
 }
 
+.list{
+    #single_country{
+        display: none;
+    }
+    #countries_list {
+        display: block;
+    }
+}
+.single{
+    #countries_list{
+        display: none;
+    }
+    #single_country{
+        display: block;
+    }
+}
+
 header{
     section{
         display: flex;

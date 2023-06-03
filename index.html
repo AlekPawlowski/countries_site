@@ -23,14 +23,19 @@
         </section>
     </header>
     <main>
-        <section id="filters">
-            <fieldset>
-                <i id="loop" class=""></i>
-                <input id="search_input" type="text" placeholder="Search for a country...">
-            </fieldset>
-            <select placeholder="Filter by region" name="region_select" id="region_select"></select>
+        <section id="countries_list">
+            <section id="filters">
+                <fieldset>
+                    <i id="loop" class=""></i>
+                    <input id="search_input" type="text" placeholder="Search for a country...">
+                </fieldset>
+                <select placeholder="Filter by region" name="region_select" id="region_select"></select>
+            </section>
+            <section id="container_to_fill"></section>
         </section>
-        <section id="countries_container"></section>
+        <section id="single_country">
+            <button type="button">&#8592; Back</button>
+        </section>
     </main>
     <script type="module" src="/src/app.ts"></script>
 </body>
