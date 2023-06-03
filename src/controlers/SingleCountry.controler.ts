@@ -73,7 +73,7 @@ export default class SingleCountryView {
         `
     }
     private createBorderElement(borderCode: string): string {
-        return `<a href="#?country=${borderCode}" target="_blank">${this.getCountryFromCode(borderCode)}</a>`
+        return `<a href="#?country=${borderCode}" onclick="setTimeout(()=>location.reload()), 100" target="_self">${this.getCountryFromCode(borderCode)}</a>`
     }
     private getCountryFromCode(code: string): string {
         const countryDataFromCode = this.countriesData.filter(country => country.cca3 == code)[0]
