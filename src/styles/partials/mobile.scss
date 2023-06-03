@@ -41,7 +41,7 @@ fieldset {
     font-size: 12px;
     &.active {
         #region_options {
-            animation: showBox 0.5s linear;
+            animation: showBox 0$transitionTime linear;
             opacity: 1;
             transform: translate(0%, 100%);
             display: block;
@@ -51,7 +51,7 @@ fieldset {
         #region_options {
             opacity: 0;
             transform: translate(-20%, 100%);
-            animation: showBox 0.5s reverse;
+            animation: showBox 0$transitionTime reverse;
         }
     }
 }
@@ -70,7 +70,7 @@ fieldset {
     }
 }
 #region_options {
-    transition: 0.5s all;
+    transition: 0$transitionTime all;
     position: absolute;
     background-color: inherit;
     width: 100%;

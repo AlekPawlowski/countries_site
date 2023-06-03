@@ -21,7 +21,7 @@ fieldset{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    transition: .5s all;
+    transition: $transitionTime all;
 }
 
 .country_element{

@@ -5,9 +5,9 @@
 @media screen and (min-width: 768px) {
     @import './partials/desktop.scss';
 }
-
 body{
     font-family: Nunito Sans, sans-serif;
+    transition: background $transitionTime;
 }
 
 header{
@@ -71,16 +71,35 @@ input{
 .dark_mode{
     background-color: $dm_background;
     color: $white;
-    transition: .5 all;
     header,
     fieldset, 
     input, 
     #region_select,
     .country_element{
+        transition: $transitionTime all;
         color: $white;
         background-color: $dm_element;
     }
     input::placeholder{
         color: $white;
+    }
+}
+
+.light_mode{
+    background-color: white;
+    header,
+    fieldset, 
+    input, 
+    #region_select,
+    .country_element{
+        transition: $transitionTime all;
+        color: $lm_text;
+        background-color: $lm_background;
+    }
+    #loop{
+        filter: brightness(0%);
+    }
+    input::placeholder{
+        color: $lm_text;
     }
 }
