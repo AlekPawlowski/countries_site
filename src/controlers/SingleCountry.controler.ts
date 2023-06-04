@@ -40,10 +40,10 @@ export default class SingleCountryView {
             borders: bordersCodes
         } = data;
 
-        const native = Object.values(nativeName)[0].official as string;
-        const currenciesTxt = Object.values(currencies).map(curr => curr.name).join(", ")
-        const langTxt = Object.values(languages).map(lang => lang).join(", ")
-        const borderElements = bordersCodes.map(border => this.createBorderElement(border)).join(" ");
+        const native = nativeName ? Object.values(nativeName)[0].official as string : "No data";
+        const currenciesTxt = currencies ? Object.values(currencies).map(curr => curr.name).join(", ") : "No currencies"
+        const langTxt = languages ?  Object.values(languages).map(lang => lang).join(", ") : "No languages";
+        const borderElements = bordersCodes ? bordersCodes.map(border => this.createBorderElement(border)).join(" ") : "no borders";
         console.log(data);
         return `<section id="map_box">
                 <img src="${img}" alt="${cca3}" />
@@ -67,7 +67,6 @@ export default class SingleCountryView {
                         Border countries: 
                     </p>
                     ${borderElements}
-
                 </section>
             </section>
         `
