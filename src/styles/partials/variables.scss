@@ -21,8 +21,31 @@ $light: 300;
 $borderRadius: 5px;
 $box_shadow: 0px 0px 8px 0px rgba(0,0,0, .22);
 
-$spaceBetweenSecitonsMobile: 25px;
-
+$spaceBetweenSecitons: 25px;
+$largespaceBetweenSecitons: 40px;
 $desktop_max_width: 1140px;
 
 $transitionTime: .5s;
+
+
+@mixin setMode($bgColor, $fontColor, $elementColor){
+    background-color: $bgColor;
+    color: $fontColor;
+    header,
+    fieldset, 
+    input, 
+    #region_select,
+    .country_element,
+    .border_element,
+    #back_button{
+        transition: $transitionTime all;
+        color: $fontColor;
+        background-color: $elementColor;
+    }
+    input::placeholder{
+        color: $fontColor;
+    }
+    img{
+        box-shadow: $box_shadow;
+    }
+}

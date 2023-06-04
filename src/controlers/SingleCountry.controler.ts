@@ -23,8 +23,8 @@ export default class SingleCountryView {
         return countryElement;
     }
     private fillCountryElement(data: SingleViewCountry): string {
-        const { 
-            flags: {png: img},
+        const {
+            flags: { png: img },
             name: {
                 common: name,
                 nativeName
@@ -39,7 +39,7 @@ export default class SingleCountryView {
             cca3,
             borders: bordersCodes
         } = data;
-        
+
         const native = Object.values(nativeName)[0].official as string;
         const currenciesTxt = Object.values(currencies).map(curr => curr.name).join(", ")
         const langTxt = Object.values(languages).map(lang => lang).join(", ")
@@ -48,7 +48,7 @@ export default class SingleCountryView {
         return `<section id="map_box">
                 <img src="${img}" alt="${cca3}" />
             </section>
-            <section>
+            <section class="info_box">
                 <h2>${name}</h2>
                 <section class="column">
                     ${createDataParagraph("NativeName", native)}
@@ -62,18 +62,18 @@ export default class SingleCountryView {
                     ${createDataParagraph("Currencies", currenciesTxt)}
                     ${createDataParagraph("Languages", langTxt)}
                 </section>
-                <section class="row">
-                    <p>
-                        <span class="bold">Border countries: </span>
-                        ${borderElements}
+                <section id="border_countries">
+                    <p class="bold">
+                        Border countries: 
                     </p>
+                    ${borderElements}
 
                 </section>
             </section>
         `
     }
     private createBorderElement(borderCode: string): string {
-        return `<a href="#?country=${borderCode}" onclick="setTimeout(()=>location.reload()), 100" target="_self">${this.getCountryFromCode(borderCode)}</a>`
+        return `<a class="border_element" href="#?country=${borderCode}" onclick="setTimeout(()=>location.reload()), 100" target="_self">${this.getCountryFromCode(borderCode)}</a>`
     }
     private getCountryFromCode(code: string): string {
         const countryDataFromCode = this.countriesData.filter(country => country.cca3 == code)[0]

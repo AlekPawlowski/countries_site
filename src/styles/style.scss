@@ -8,6 +8,7 @@
 body{
     font-family: Nunito Sans, sans-serif;
     transition: background $transitionTime;
+    min-height: 100vh;
 }
 
 .list{
@@ -86,37 +87,12 @@ input{
 
 
 .dark_mode{
-    background-color: $dm_background;
-    color: $white;
-    header,
-    fieldset, 
-    input, 
-    #region_select,
-    .country_element{
-        transition: $transitionTime all;
-        color: $white;
-        background-color: $dm_element;
-    }
-    input::placeholder{
-        color: $white;
-    }
+    @include setMode($dm_background, $white, $dm_element);
 }
 
 .light_mode{
-    background-color: white;
-    header,
-    fieldset, 
-    input, 
-    #region_select,
-    .country_element{
-        transition: $transitionTime all;
-        color: $lm_text;
-        background-color: $lm_background;
-    }
+    @include setMode(white, $lm_text, $lm_background);
     #loop{
         filter: brightness(0%);
-    }
-    input::placeholder{
-        color: $lm_text;
     }
 }
