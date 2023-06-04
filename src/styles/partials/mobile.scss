@@ -1,5 +1,6 @@
+
 header {
-    margin-bottom: $spaceBetweenSecitonsMobile;
+    margin-bottom: $spaceBetweenSecitons;
     padding: 20px 15px;
     section {
         max-width: 95%;
@@ -13,14 +14,14 @@ main {
 
 #filters {
     display: flex;
-    margin-bottom: $spaceBetweenSecitonsMobile;
+    margin-bottom: $spaceBetweenSecitons;
     gap: 40px;
     flex-direction: column;
 }
 
 fieldset {
     display: flex;
-    padding: 12px $spaceBetweenSecitonsMobile;
+    padding: 12px $spaceBetweenSecitons;
     box-sizing: border-box;
     box-shadow: $box_shadow;
     gap: 20px;
@@ -35,7 +36,7 @@ fieldset {
 
 #region_select {
     border-radius: $borderRadius;
-    padding: 12px 80px 12px $spaceBetweenSecitonsMobile;
+    padding: 12px 80px 12px $spaceBetweenSecitons;
     width: fit-content;
     position: relative;
     font-size: 12px;
@@ -78,7 +79,7 @@ fieldset {
     bottom: -5px;
     border-radius: $borderRadius;
     box-shadow: $box_shadow;
-    padding: 12px $spaceBetweenSecitonsMobile;
+    padding: 12px $spaceBetweenSecitons;
     box-sizing: border-box;
     line-height: 140%;
 }
@@ -99,21 +100,21 @@ fieldset {
         max-width: 100%;
         width: 100%;
     }
-    h2 {
-        font-weight: $bold;
-        font-size: $detail_page_font_size;
-        padding-bottom: 20px;
-    }
-    p {
-        padding-bottom: 10px;
-        font-size: $home_page_font_size;
-    }
-    span {
-        font-weight: $light;
-    }
-    .bold {
-        font-weight: $medium;
-    }
+}
+h2 {
+    font-weight: $bold;
+    font-size: $detail_page_font_size;
+    padding-bottom: 20px;
+}
+main p {
+    padding-bottom: 10px;
+    font-size: $home_page_font_size;
+}
+span {
+    font-weight: $light;
+}
+.bold {
+    font-weight: $medium;
 }
 .custom-select select {
     display: none; /*hide original SELECT element:*/
@@ -123,14 +124,63 @@ fieldset {
     padding: 20px 20px 40px;
 }
 
-
 // ███████╗██╗███╗   ██╗ ██████╗ ██╗     ███████╗     ██████╗ ██████╗ ██╗   ██╗███╗   ██╗████████╗██████╗ ██╗   ██╗
 // ██╔════╝██║████╗  ██║██╔════╝ ██║     ██╔════╝    ██╔════╝██╔═══██╗██║   ██║████╗  ██║╚══██╔══╝██╔══██╗╚██╗ ██╔╝
-// ███████╗██║██╔██╗ ██║██║  ███╗██║     █████╗      ██║     ██║   ██║██║   ██║██╔██╗ ██║   ██║   ██████╔╝ ╚████╔╝ 
-// ╚════██║██║██║╚██╗██║██║   ██║██║     ██╔══╝      ██║     ██║   ██║██║   ██║██║╚██╗██║   ██║   ██╔══██╗  ╚██╔╝  
-// ███████║██║██║ ╚████║╚██████╔╝███████╗███████╗    ╚██████╗╚██████╔╝╚██████╔╝██║ ╚████║   ██║   ██║  ██║   ██║   
-// ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝╚══════╝     ╚═════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝   
-                                                                                                                
-#single_country{
-    
+// ███████╗██║██╔██╗ ██║██║  ███╗██║     █████╗      ██║     ██║   ██║██║   ██║██╔██╗ ██║   ██║   ██████╔╝ ╚████╔╝
+// ╚════██║██║██║╚██╗██║██║   ██║██║     ██╔══╝      ██║     ██║   ██║██║   ██║██║╚██╗██║   ██║   ██╔══██╗  ╚██╔╝
+// ███████║██║██║ ╚████║╚██████╔╝███████╗███████╗    ╚██████╗╚██████╔╝╚██████╔╝██║ ╚████║   ██║   ██║  ██║   ██║
+// ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝╚══════╝     ╚═════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝
+
+#country_element {
+    display: flex;
+    flex-direction: column;
+    gap: $spaceBetweenSecitons;
+    img {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+#back_button {
+    margin-bottom: $largespaceBetweenSecitons;
+    border: none;
+    border-radius: $borderRadius;
+    box-shadow: $box_shadow;
+    padding: 10px 25px;
+    font-weight: $light;
+}
+
+.info_box {
+    h2 {
+        font-size: 24px;
+    }
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: $spaceBetweenSecitons;
+}
+
+#border_countries{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 15px;
+    row-gap: 10px;
+    margin-bottom: $spaceBetweenSecitons;
+    .bold{
+        display: block;
+        font-size: 120%;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    a{
+        text-decoration: none;
+        color: inherit;
+        font-weight: $light;
+        box-shadow: $box_shadow;
+        padding: 12px 20px;
+        border-radius: $borderRadius;
+    }
 }
