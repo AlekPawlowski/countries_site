@@ -44,11 +44,13 @@ function handleList(data: SingleViewCountry[]): void {
     const list = new ListOfCountries(data, listContainerToFill, selectBoxContainer);
     list.initlize();
     selectBoxContainer.onchange = (event) => {
-        const value = event.target.value;
+        const targetElement = event.target as HTMLSelectElement;
+        const value = targetElement.value;
         list.updateOption(value);
     };
     searchInput.oninput = (event) => {
-        const value = event.target.value;
+        const targetElement = event.target as HTMLInputElement;
+        const value = targetElement.value;
         list.updateFhrase(value);
     };
 }

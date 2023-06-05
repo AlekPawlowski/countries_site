@@ -23,10 +23,13 @@ export interface Languages {
     name: string;
 }
 
+interface Test{
+    official: string;
+}
 export interface SingleViewCountry extends CountryInformation{
     name: {
         common: string;
-        nativeName: any;
+        nativeName: Test[];
     };
     subregion: string;
     tld: string[];
